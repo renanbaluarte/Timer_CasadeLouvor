@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+        body {
+
+            /*background-color: black;*/
+            background-image: url('');
+            max-width: 100%;
+            max-height: 100%;
+            background-size: cover;
+            transition: background 1s ease-in-out;
+        
+
+            
+        }
+        .blur {
+            filter: blur(8px);
+        }
+
+        section {
+
+            text-align: center;
+            color: white;
+            padding: 100px;
+            font-size: 300px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+
+        }
+        
+        p {
+            text-align: center;
+            color: white;
+            height: 10;
+            /* text-align-last: center; */
+            font-size: 20px;
+            font-weight: bold;
+            
+
+    
+
+        }
+
+        
+
+    </style>
+</head>
+<body onload="carregar()" id="fundo">
+    <section id="mostrador">00:00
+    </section>
+   <p>
+    @casadelouvor.rj
+   </p>
+   
+    
+    <script>
+
+    
+    var links = ['https://docs.google.com/uc?export=download&id=1SawFeiK4cWDry3Z4KUZ2wj2Pa9z4Sc4a', 'https://docs.google.com/uc?export=download&id=1BsScgnNPgguHgwgZevmterW-fiCmwQbd', 'https://docs.google.com/uc?export=download&id=15uvdT4tZ-GphhCM7Tuw0KbVXB80G5DPO', 'https://docs.google.com/uc?export=download&id=1wRUikdbSQyQzvLospOcEZxJ3qGi0b8K3', 'https://docs.google.com/uc?export=download&id=1ZN-UZy7V2zyz7_a6byApsczm9Y-lQRuW' ,'https://docs.google.com/uc?export=download&id=1DtpcoHPoJQ4-KdQlSlAztF6SzMt8CrWM' ]
+    var link = links[Math.floor(Math.random() * links.length)];
+
+    
+
+    function carregar() 
+    
+    {
+       
+
+        var link = links[Math.floor(Math.random() * links.length)];
+        document.body.style.backgroundImage = "url(" + link + ")";
+        
+        
+     
+        let tempo = 10 * 60; // tempo em segundos
+
+        let elemento = document.getElementById('mostrador'); // substitua 'meuTemporizador' pelo id do seu elemento
+
+        let intervalo = setInterval(function() {
+        let minutos = Math.floor(tempo / 60);
+        let segundos = tempo % 60;
+
+        elemento.innerHTML = minutos + ":" + (segundos < 10 ? "0" : "") + segundos;
+
+        tempo--;
+
+        if (tempo < 0) {
+        clearInterval(intervalo);
+        elemento.innerHTML = '0:00';
+        }
+
+        if (tempo == 300){
+            var link = links[Math.floor(Math.random() * links.length)];
+            document.body.style.backgroundImage = "url(" + link + ")";
+        }
+
+    
+
+}, 1000);}
+
+
+
+       
+           
+    
+    </script>
+    
+</body>
+</html>
